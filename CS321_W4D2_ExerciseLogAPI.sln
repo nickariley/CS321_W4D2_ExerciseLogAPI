@@ -6,6 +6,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS321_W4D2_ExerciseLogAPI",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS321_W4D2_ExerciseLogAPI.Core", "CS321_W4D2_ExerciseLogAPI.Core\CS321_W4D2_ExerciseLogAPI.Core.csproj", "{1E2B8851-D25F-492E-B175-2F94717F56B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS321_W4D2_ExerciseLogAPI.Infrastructure", "CS321_W4D2_ExerciseLogAPI.Infrastructure\CS321_W4D2_ExerciseLogAPI.Infrastructure.csproj", "{3231052A-F4BA-4E33-A58A-63A9BC681E15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{1E2B8851-D25F-492E-B175-2F94717F56B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E2B8851-D25F-492E-B175-2F94717F56B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E2B8851-D25F-492E-B175-2F94717F56B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3231052A-F4BA-4E33-A58A-63A9BC681E15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3231052A-F4BA-4E33-A58A-63A9BC681E15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3231052A-F4BA-4E33-A58A-63A9BC681E15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3231052A-F4BA-4E33-A58A-63A9BC681E15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
