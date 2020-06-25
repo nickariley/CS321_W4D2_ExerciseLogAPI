@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
 {
-    class AppDbContext : DbContext
+    public class AppDbContext : DbContext
     {
         // TODO: implement a DbSet<Book> property
         public DbSet<Activity> Activities { get; set; }
@@ -19,7 +19,7 @@ namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // TODO: use optionsBuilder to configure a Sqlite db
-            optionsBuilder.UseSqlite("Data Source=../CS321_W4D2_ExerciseLogAPI.Infrastructure/exercise.db");
+            optionsBuilder.UseSqlite("Data Source=../CS321_W4D2_ExerciseLogAPI.Infrastructure/ExerciseLog.db");
         }
 
         // This method runs once when the DbContext is first used.
