@@ -23,7 +23,7 @@ namespace CS321_W4D2_ExerciseLogAPI.Controllers
 
         // GET: api/<UsersController>
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetAll()
         {
             var userModels = _userService.GetAll().ToApiModels();
 
