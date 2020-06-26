@@ -20,28 +20,27 @@ namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
         public ActivityType Add(ActivityType activityType)
         {
             _appDbContext.ActivityTypes.Add(activityType);
+
             _appDbContext.SaveChanges();
+
             return activityType;
 
         }
 
         public ActivityType Get(int id)
         {
-            return _appDbContext.ActivityTypes
-                .Include(a => a.Id)
-                .SingleOrDefault(a => a.Id == id);
+            return _appDbContext.ActivityTypes.Include(a => a.Id).SingleOrDefault(a => a.Id == id);
         }
 
         public IEnumerable<ActivityType> GetAll()
         {
-            return _appDbContext.ActivityTypes
-                .Include(a => a.RecordType)
-                .ToList();
+            return _appDbContext.ActivityTypes.Include(a => a.RecordType).ToList();
         }
 
         public void Remove(ActivityType activityType)
         {
             _appDbContext.ActivityTypes.Remove(activityType);
+
             _appDbContext.SaveChanges();
         }
 
@@ -51,11 +50,10 @@ namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
 
             if (currentActivityType == null) return null;
 
-            _appDbContext.Entry(currentActivityType)
-                .CurrentValues
-                .SetValues(updatedActivityType);
+            _appDbContext.Entry(currentActivityType).CurrentValues.SetValues(updatedActivityType);
 
             _appDbContext.ActivityTypes.Update(currentActivityType);
+
             _appDbContext.SaveChanges();
 
             return currentActivityType;

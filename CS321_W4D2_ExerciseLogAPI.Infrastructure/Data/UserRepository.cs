@@ -19,22 +19,20 @@ namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
         public User Add(User user)
         {
             _appDbContext.Users.Add(user);
+
             _appDbContext.SaveChanges();
+
             return user;
         }
 
         public User Get(int id)
         {
-            return _appDbContext.Users
-                .Include(u => u.Id)
-                .SingleOrDefault(u => u.Id == id);
+            return _appDbContext.Users.Include(u => u.Id).SingleOrDefault(u => u.Id == id);
         }
 
         public IEnumerable<User> GetAll()
         {
-            return _appDbContext.Users
-                .Include(u => u.Activities)
-                .ToList();
+            return _appDbContext.Users.Include(u => u.Activities).ToList();
         }
 
         public User Update(User updatedUser)
@@ -51,19 +49,19 @@ namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
             // copy the property values from the changed todo into the
             // one in the db. NOTE that this is much simpler than individually
             // copying each property.
-            _appDbContext.Entry(currentUser)
-                .CurrentValues
-                .SetValues(updatedUser);
-
+            _appDbContext.Entry(currentUser).CurrentValues.SetValues(updatedUser);
             // update the todo and save
             _appDbContext.Users.Update(currentUser);
+
             _appDbContext.SaveChanges();
+
             return currentUser;
         }
 
         public void Remove(User user)
         {
             _appDbContext.Users.Remove(user);
+
             _appDbContext.SaveChanges();
         }
     }
