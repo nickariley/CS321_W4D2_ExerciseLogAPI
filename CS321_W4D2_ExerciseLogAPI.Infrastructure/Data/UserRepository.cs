@@ -10,29 +10,29 @@ namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
 {
     public class UserRepository : IUserRepository
     {
-        private readonly AppDbContext _dbContext;
+        private readonly AppDbContext _appDbContext;
         public UserRepository(AppDbContext dbContext)
         {
-            _dbContext = dbContext;
+            _appDbContext = dbContext;
         }
 
         public User Add(User user)
         {
-            _dbContext.Users.Add(user);
-            _dbContext.SaveChanges();
+            _appDbContext.Users.Add(user);
+            _appDbContext.SaveChanges();
             return user;
         }
 
         public User Get(int id)
         {
-            return _dbContext.Users
+            return _appDbContext.Users
                 .Include(u => u.Id)
                 .SingleOrDefault(u => u.Id == id);
         }
 
         public IEnumerable<User> GetAll()
         {
-            return _dbContext.Users
+            return _appDbContext.Users
                 .Include(u => u.Activities)
                 .ToList();
         }
@@ -40,7 +40,7 @@ namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
         public User Update(User updatedUser)
         {
             // get the ToDo object in the current list with this id 
-            var currentUser = _dbContext.Users.Find(updatedUser.Id);
+            var currentUser = _appDbContext.Users.Find(updatedUser.Id);
 
             // return null if todo to update isn't found
             if (currentUser == null) return null;
@@ -51,20 +51,20 @@ namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
             // copy the property values from the changed todo into the
             // one in the db. NOTE that this is much simpler than individually
             // copying each property.
-            _dbContext.Entry(currentUser)
+            _appDbContext.Entry(currentUser)
                 .CurrentValues
                 .SetValues(updatedUser);
 
             // update the todo and save
-            _dbContext.Users.Update(currentUser);
-            _dbContext.SaveChanges();
+            _appDbContext.Users.Update(currentUser);
+            _appDbContext.SaveChanges();
             return currentUser;
         }
 
         public void Remove(User user)
         {
-            _dbContext.Users.Remove(user);
-            _dbContext.SaveChanges();
+            _appDbContext.Users.Remove(user);
+            _appDbContext.SaveChanges();
         }
     }
 }
