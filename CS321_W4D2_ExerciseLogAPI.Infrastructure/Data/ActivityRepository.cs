@@ -28,12 +28,12 @@ namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
 
         public Activity Get(int id)
         {
-            return _appDbContext.Activities.Include(a => a.Id).SingleOrDefault(a => a.Id == id);
+            return _appDbContext.Activities.Include(a => a.User).Include(a=>a.ActivityType).SingleOrDefault(a => a.Id == id);
         }
 
         public IEnumerable<Activity> GetAll()
         {
-            return _appDbContext.Activities.Include(a => a.ActivityType).ToList();
+            return _appDbContext.Activities.Include(a=>a.User).Include(a => a.ActivityType).ToList();
         }
 
         public void Remove(Activity activity)

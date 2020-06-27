@@ -27,7 +27,7 @@ namespace CS321_W4D2_ExerciseLogAPI.Infrastructure.Data
 
         public User Get(int id)
         {
-            return _appDbContext.Users.Include(u => u.Id).SingleOrDefault(u => u.Id == id);
+            return _appDbContext.Users.Include(u => u.Activities).SingleOrDefault(u => u.Id == id);
         }
 
         public IEnumerable<User> GetAll()
