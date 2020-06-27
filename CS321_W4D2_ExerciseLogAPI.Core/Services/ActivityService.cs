@@ -20,18 +20,18 @@ namespace CS321_W4D2_ExerciseLogAPI.Core.Services
         {
 
             //// retrieve the ActivityType so we can check
-            //var activityType = _activityTypeRepo.Get(Activity.ActivityTypeId);
-            //// for a DurationAndDistance activity, you must supply a Distance
-            //if (activityType.RecordType == RecordType.DurationAndDistance
-            //    && Activity.Distance <= 0)
-            //{
-            //    throw new ApplicationException("You must supply a Distance for this activity.");
-            //}
-            //// for either type, you must supply a Duration
-            //if (Activity.Duration <= 0)
-            //{
-            //    throw new ApplicationException("You must supply a Duration for this activity.");
-            //}
+            var activityType = _activityTypeRepo.Get(activity.ActivityTypeId);
+            // for a DurationAndDistance activity, you must supply a Distance
+            if (activityType.RecordType == RecordType.DurationAndDistance
+                && activity.Distance <= 0)
+            {
+                throw new ApplicationException("You must supply a Distance for this activity.");
+            }
+            // for either type, you must supply a Duration
+            if (activity.Duration <= 0)
+            {
+                throw new ApplicationException("You must supply a Duration for this activity.");
+            }
 
             // TODO: implement add
             _activityRepo.Add(activity);
